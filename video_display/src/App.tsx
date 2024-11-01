@@ -1,15 +1,22 @@
 
+import React from 'react';
 import { useLocalCamerStream } from './useLocalCameraStream';
 import { VideoFeed } from './videoFeed';
-import './App.css'
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+
 
 function App() {
 const {localStream}=useLocalCamerStream();
-if(!localStream){
-  return null;
-}
+
   
-return <VideoFeed mediaStream={localStream}isMuted={true}/>
+return (
+  <BrowserRouter>
+  <Routes>
+    <Route
+    path='video-chat-room/:roomName'/>
+  </Routes>
+  </BrowserRouter>
+)
 }
 
 export default App
